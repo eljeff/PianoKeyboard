@@ -60,7 +60,9 @@ public final class PianoKey {
         }
 
         if let label = label, showNotes {
-            noteLayer = NoteNameLayer(layerHeight: imageLayer.frame.size.height, keyRect: rect, noteNumber: noteNumber, label: label)
+            var noteLabelHeight = imageLayer.frame.size.height
+            if type == .black { noteLabelHeight = noteLabelHeight/1.25 }
+            noteLayer = NoteNameLayer(layerHeight: noteLabelHeight, keyRect: rect, noteNumber: noteNumber, label: label)
             if let noteLayer = noteLayer {
                 imageLayer.addSublayer(noteLayer)
             }
