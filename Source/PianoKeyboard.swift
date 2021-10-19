@@ -177,7 +177,7 @@ import UIKit
                     adjustedOffset -= blackKeyWidth * keyShiftAdjust2
                 }
                 let keyRect = CGRect(x: (xPosition - adjustedOffset), y: 0, width: blackKeyWidth, height: blackKeyHeight)
-                let key = PianoKey(color: UIColor.black, rect: keyRect, type: .black, cornerRadius: keyCornerRadius, showNotes: showNotes, noteNumber: noteNumber, label: labels[noteNumber], whiteKeyUpImage: whiteKeyUpImage, whiteKeyDownImage: whiteKeyDownImage, blackKeyUpImage: blackKeyUpImage, blackKeyDownImage: blackKeyDownImage)
+                let key = PianoKey(color: UIColor.black, rect: keyRect, type: .black, cornerRadius: keyCornerRadius, showNotes: showNotes, noteNumber: noteNumber, label: labels[noteNumber], blackKeyWidth: blackKeyWidth, blackKeyHeight: blackKeyHeight, whiteKeyUpImage: whiteKeyUpImage, whiteKeyDownImage: whiteKeyDownImage, blackKeyUpImage: blackKeyUpImage, blackKeyDownImage: blackKeyDownImage)
                 keysArray[index] = key
                 layer.addSublayer(key.imageLayer)
             }
