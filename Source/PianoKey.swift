@@ -25,7 +25,7 @@ public final class PianoKey {
     public var noteLayer: NoteNameLayer?
     public var resetsHighLight: Bool = true
 
-    init(color: UIColor, rect: CGRect, type: PianoKeyType, cornerRadius: CGFloat, showNotes: Bool, noteNumber: Int, label: String?, blackKeyWidth: CGFloat = 0, blackKeyHeight: CGFloat = 0, whiteKeyUpImage: UIImage?, whiteKeyDownImage: UIImage?, blackKeyUpImage: UIImage?, blackKeyDownImage: UIImage?, darkMode: Bool, whiteKeyUpDarkModeImage: UIImage?, whiteKeyDownDarkModeImage: UIImage?, blackKeyUpDarkModeImage: UIImage? , blackKeyDownDarkModeImage: UIImage?) {
+    init(color: UIColor, rect: CGRect, type: PianoKeyType, cornerRadius: CGFloat, showNotes: Bool, noteNumber: Int, label: String?, blackKeyWidth: CGFloat = 0, blackKeyHeight: CGFloat = 0, whiteKeyUpImage: UIImage?, whiteKeyDownImage: UIImage?, blackKeyUpImage: UIImage?, blackKeyDownImage: UIImage?) {
         self.noteNumber = noteNumber
         self.type = type
         let x: CGFloat = 1.0
@@ -44,15 +44,15 @@ public final class PianoKey {
         imageLayer.addSublayer(highlightLayer)
         
         if type == .white {
-            upImage = (darkMode ? whiteKeyUpDarkModeImage : whiteKeyUpImage) ?? UIImage.keyImage(CGSize(width: 21, height: 21), blackKey: false, keyDown: false, keyCornerRadius: cornerRadius, noteNumber: noteNumber)!
-            downImage = (darkMode ? whiteKeyDownDarkModeImage : whiteKeyDownImage) ?? UIImage.keyImage(CGSize(width: 21, height: 21), blackKey: false, keyDown: true, keyCornerRadius: cornerRadius, noteNumber: noteNumber)!
+            upImage = whiteKeyUpImage ?? UIImage.keyImage(CGSize(width: 21, height: 21), blackKey: false, keyDown: false, keyCornerRadius: cornerRadius, noteNumber: noteNumber)!
+            downImage = whiteKeyDownImage ?? UIImage.keyImage(CGSize(width: 21, height: 21), blackKey: false, keyDown: true, keyCornerRadius: cornerRadius, noteNumber: noteNumber)!
             if let image = upImage.cgImage {
                 imageLayer.contents = image
             }
             highlightLayer.compositingFilter = "darkenBlendMode"
         } else {
-            upImage = (darkMode ? blackKeyUpDarkModeImage : blackKeyUpImage) ?? UIImage.keyImage(CGSize(width: blackKeyWidth, height: blackKeyHeight), blackKey: true, keyDown: false, keyCornerRadius: cornerRadius, noteNumber: noteNumber) ?? UIImage()
-            downImage = (darkMode ? blackKeyDownDarkModeImage : blackKeyDownImage) ?? UIImage.keyImage(CGSize(width: blackKeyWidth, height: blackKeyHeight), blackKey: true, keyDown: true, keyCornerRadius: cornerRadius, noteNumber: noteNumber) ?? UIImage()
+            upImage = blackKeyUpImage ?? UIImage.keyImage(CGSize(width: blackKeyWidth, height: blackKeyHeight), blackKey: true, keyDown: false, keyCornerRadius: cornerRadius, noteNumber: noteNumber) ?? UIImage()
+            downImage = blackKeyDownImage ?? UIImage.keyImage(CGSize(width: blackKeyWidth, height: blackKeyHeight), blackKey: true, keyDown: true, keyCornerRadius: cornerRadius, noteNumber: noteNumber) ?? UIImage()
             if let image = upImage.cgImage {
                 imageLayer.contents = image
             }
