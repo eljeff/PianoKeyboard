@@ -14,8 +14,8 @@ public enum PianoKeyType {
 }
 
 public final class PianoKey {
-    public let upImage: UIImage
-    public let downImage: UIImage
+    private let upImage: UIImage
+    private let downImage: UIImage
     public let type: PianoKeyType
     public let imageLayer = CALayer()
     public let highlightLayer = CALayer()
