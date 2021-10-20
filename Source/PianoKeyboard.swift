@@ -35,6 +35,11 @@ import UIKit
     @IBInspectable public var whiteKeyDownImage: UIImage?
     @IBInspectable public var blackKeyUpImage: UIImage?
     @IBInspectable public var blackKeyDownImage: UIImage?
+    @IBInspectable public var darkMode: Bool = true
+    @IBInspectable public var whiteKeyUpDarkModeImage: UIImage?
+    @IBInspectable public var whiteKeyDownDarkModeImage: UIImage?
+    @IBInspectable public var blackKeyUpDarkModeImage: UIImage?
+    @IBInspectable public var blackKeyDownDarkModeImage: UIImage?
 
     @IBInspectable public var blackKeyHeight: CGFloat {
         get {
@@ -139,7 +144,7 @@ import UIKit
                 let newW = ((xPosition + whiteKeyWidth + 0.5) - newX)
                 let keyRect = CGRect(x: newX, y: 0, width: newW, height: whiteKeyHeight - 1)
                 let noteNumber = index + octave
-                let key = PianoKey(color: UIColor.white, rect: keyRect, type: .white, cornerRadius: keyCornerRadius, showNotes: showNotes, noteNumber: noteNumber, label: labels[noteNumber], whiteKeyUpImage: whiteKeyUpImage, whiteKeyDownImage: whiteKeyDownImage, blackKeyUpImage: blackKeyUpImage, blackKeyDownImage: blackKeyDownImage)
+                let key = PianoKey(color: UIColor.white, rect: keyRect, type: .white, cornerRadius: keyCornerRadius, showNotes: showNotes, noteNumber: noteNumber, label: labels[noteNumber], whiteKeyUpImage: whiteKeyUpImage, whiteKeyDownImage: whiteKeyDownImage, blackKeyUpImage: blackKeyUpImage, blackKeyDownImage: blackKeyDownImage, darkMode: darkMode, whiteKeyUpDarkModeImage: whiteKeyUpDarkModeImage, whiteKeyDownDarkModeImage: whiteKeyDownDarkModeImage, blackKeyUpDarkModeImage: blackKeyUpDarkModeImage, blackKeyDownDarkModeImage: blackKeyDownDarkModeImage)
                 keysArray[index] = key
                 layer.addSublayer(key.imageLayer)
                 xPosition += whiteKeyWidth
@@ -177,7 +182,7 @@ import UIKit
                     adjustedOffset -= blackKeyWidth * keyShiftAdjust2
                 }
                 let keyRect = CGRect(x: (xPosition - adjustedOffset), y: 0, width: blackKeyWidth, height: blackKeyHeight)
-                let key = PianoKey(color: UIColor.black, rect: keyRect, type: .black, cornerRadius: keyCornerRadius, showNotes: showNotes, noteNumber: noteNumber, label: labels[noteNumber], blackKeyWidth: blackKeyWidth, blackKeyHeight: blackKeyHeight, whiteKeyUpImage: whiteKeyUpImage, whiteKeyDownImage: whiteKeyDownImage, blackKeyUpImage: blackKeyUpImage, blackKeyDownImage: blackKeyDownImage)
+                let key = PianoKey(color: UIColor.black, rect: keyRect, type: .black, cornerRadius: keyCornerRadius, showNotes: showNotes, noteNumber: noteNumber, label: labels[noteNumber], blackKeyWidth: blackKeyWidth, blackKeyHeight: blackKeyHeight, whiteKeyUpImage: whiteKeyUpImage, whiteKeyDownImage: whiteKeyDownImage, blackKeyUpImage: blackKeyUpImage, blackKeyDownImage: blackKeyDownImage, darkMode: darkMode, whiteKeyUpDarkModeImage: whiteKeyUpDarkModeImage, whiteKeyDownDarkModeImage: whiteKeyDownDarkModeImage, blackKeyUpDarkModeImage: blackKeyUpDarkModeImage, blackKeyDownDarkModeImage: blackKeyDownDarkModeImage)
                 keysArray[index] = key
                 layer.addSublayer(key.imageLayer)
             }
